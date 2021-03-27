@@ -1,0 +1,3 @@
+<resources>
+    <color name="bg">{{PLUGIN_COLORS_BG}}</color>
+</resources>

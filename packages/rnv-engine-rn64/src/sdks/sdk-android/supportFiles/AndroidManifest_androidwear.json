@@ -1,0 +1,56 @@
+{
+    "tag": "manifest",
+    "xmlns:android": "http://schemas.android.com/apk/res/android",
+    "package": "{{APPLICATION_ID}}",
+    "xmlns:tools": "http://schemas.android.com/tools",
+    "children": [
+        {
+            "tag": "uses-feature",
+            "android:name": "android.hardware.type.watch",
+            "android:required": false
+        },
+        {
+            "tag": "application",
+            "android:name": ".MainApplication",
+            "android:label": "@string/app_name",
+            "android:icon": "@mipmap/ic_launcher_round",
+            "android:supportsRtl": true,
+            "android:usesCleartextTraffic": true,
+            "tools:replace": "android:appComponentFactory",
+            "android:appComponentFactory": "appComponentFactoryFix",
+            "android:theme": "@style/AppTheme",
+            "children": [
+                {
+                    "tag": "activity",
+                    "android:name": ".MainActivity",
+                    "android:label": "@string/app_name",
+                    "android:launchMode": "singleTask",
+                    "children": [
+                        {
+                            "tag": "intent-filter",
+                            "children": [
+                                {
+                                    "tag": "action",
+                                    "android:name": "android.intent.action.MAIN"
+                                },
+                                {
+                                    "tag": "category",
+                                    "android:name": "android.intent.category.LAUNCHER"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tag": "meta-data",
+                    "android:name": "com.google.android.wearable.standalone",
+                    "android:value": true
+                },
+                {
+                    "tag": "activity",
+                    "android:name": "com.facebook.react.devsupport.DevSettingsActivity"
+                }
+            ]
+        }
+    ]
+}

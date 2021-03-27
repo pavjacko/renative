@@ -1,0 +1,71 @@
+{
+    "id": "engine-rn64",
+    "engineExtension": "rn",
+    "overview": "Default react-native based engine. Runs standard react native apps with native support",
+    "plugins": {
+        "react": "source:rnv",
+        "react-art": "source:rnv",
+        "react-dom": "source:rnv",
+        "react-native": "source:rnv",
+        "react-native-web": "source:rnv",
+        "@react-native-community/cli-platform-ios": "source:rnv",
+        "@react-native-community/cli": "source:rnv"
+    },
+    "npm": {
+        "devDependencies": {
+
+        }
+    },
+    "platforms": {
+        "ios": {
+            "engine": "engine-rn",
+            "npm": {
+                "devDependencies": {
+                    "xcode": "2.1.0"
+                },
+                "optionalDependencies": {
+                    "ios-deploy": "1.10.0"
+                }
+            }
+        },
+        "android": {
+            "engine": "engine-rn",
+            "npm": {
+                "devDependencies": {
+                    "jetifier": "1.6.5"
+                }
+            }
+        },
+        "androidwear": {
+            "npm": {
+                "devDependencies": {
+                    "jetifier": "1.6.5"
+                }
+            }
+        },
+        "androidtv": {
+            "npm": {
+                "devDependencies": {
+                    "jetifier": "1.6.5"
+                }
+            }
+        },
+        "firetv": {
+            "npm": {
+                "devDependencies": {
+                    "jetifier": "1.6.5"
+                }
+            }
+        },
+        "tvos": {
+            "npm": {
+                "devDependencies": {
+                    "xcode": "2.1.0"
+                },
+                "optionalDependencies": {
+                    "ios-deploy": "1.10.0"
+                }
+            }
+        }
+    }
+}

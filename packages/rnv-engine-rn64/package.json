@@ -1,0 +1,43 @@
+{
+    "name": "@rnv/engine-rn64",
+    "version": "0.32.0-alpha.39",
+    "description": "ReNative Engine to build react-native based platforms.",
+    "keywords": [
+        "react-native"
+    ],
+    "homepage": "https://github.com/pavjacko/renative#readme",
+    "bugs": {
+        "url": "https://github.com/pavjacko/renative/issues"
+    },
+    "license": "MIT",
+    "author": "Pavel Jacko <pavel.jacko@gmail.com> (https://github.com/pavjacko)",
+    "contributors": [],
+    "main": "dist/index.js",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/pavjacko/renative.git"
+    },
+    "scripts": {
+        "build": "babel src -d dist --source-maps",
+        "build:clean": "rm -rf dist || true",
+        "build:dev": "yarn build --retain-lines",
+        "prepublishOnly": "yarn build",
+        "test": "jest -c __tests__/jest.config.js",
+        "watch": "nodemon --watch src --exec yarn build:dev"
+    },
+    "devDependencies": {
+        "@babel/cli": "7.8.3",
+        "@babel/core": "7.8.3",
+        "@babel/node": "7.8.3",
+        "@babel/plugin-proposal-nullish-coalescing-operator": "7.8.3",
+        "@babel/plugin-proposal-optional-chaining": "7.8.3",
+        "@babel/preset-env": "7.8.7"
+    },
+    "peerDependencies": {
+        "rnv": ">=0.31"
+    },
+    "private": false,
+    "publishConfig": {
+        "access": "public"
+    }
+}

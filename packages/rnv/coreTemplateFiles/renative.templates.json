@@ -8,6 +8,10 @@
             "version": "0.32.0-alpha.39",
             "id": "engine-rn"
         },
+        "@rnv/engine-rn64": {
+            "version": "0.32.0-alpha.39",
+            "id": "engine-rn64"
+        },
         "@rnv/engine-rn-web": {
             "version": "0.32.0-alpha.39",
             "id": "engine-rn-web"

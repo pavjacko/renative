@@ -1,0 +1,20 @@
+{
+  "build.gradle": {
+    "injectLines_1": [
+      "apply plugin: 'com.android.application'",
+      "apply plugin: 'kotlin-android'"
+      "apply plugin: 'kotlin-android-extensions'"
+    ],
+    "android": {
+
+    },
+    "dependencies": {
+
+    },
+    "injectLines_2": [
+      "apply plugin: 'com.android.application'",
+      "apply plugin: 'kotlin-android'"
+      "apply plugin: 'kotlin-android-extensions'"
+    ]
+  }
+}

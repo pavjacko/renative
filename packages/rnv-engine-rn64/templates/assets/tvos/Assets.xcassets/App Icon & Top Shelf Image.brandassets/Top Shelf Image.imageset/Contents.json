@@ -1,0 +1,26 @@
+{
+    "images": [
+        {
+            "idiom": "tv",
+            "filename": "Top Shelf Image.png",
+            "scale": "1x"
+        },
+        {
+            "idiom": "tv",
+            "filename": "Top Shelf Image@2x.png",
+            "scale": "2x"
+        },
+        {
+            "idiom": "tv-marketing",
+            "scale": "1x"
+        },
+        {
+            "idiom": "tv-marketing",
+            "scale": "2x"
+        }
+    ],
+    "info": {
+        "version": 1,
+        "author": "xcode"
+    }
+}

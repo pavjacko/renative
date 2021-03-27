@@ -1,0 +1,7 @@
+{{PLUGIN_INCLUDES}}
+
+{{PLUGIN_PATHS}}
+
+// ReNative: To allow dynamic plugins via flavours autolinking has to be disabled
+// apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings, '../..')
+// include ':app'

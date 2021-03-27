@@ -1,0 +1,78 @@
+{
+  "AndroidManifest": {
+    "tag": "manifest",
+    "parameters": {
+      "xmlns:android": "http://schemas.android.com/apk/res/android",
+      "package": "{{APPLICATION_ID}}",
+      "xmlns:tools": "http://schemas.android.com/tools"
+    },
+    "children": [{
+      "tag": "application",
+      "parameters": {
+        "android:allowBackup": true,
+        "android:largeHeap": true,
+        "android:name": ".MainApplication",
+        "android:label": "@string/app_name",
+        "android:icon": "@mipmap/ic_launcher",
+        "tools:replace": "android:appComponentFactory",
+        "android:appComponentFactory": "appComponentFactoryFix",
+        "android:supportsRtl": true,
+        "android:theme": "@style/AppTheme",
+      },
+      "children": [{
+          "tag": "activity",
+          "parameters": {
+            "android:name": ".SplashActivity",
+            "android:screenOrientation": "portrait",
+            "android:noHistory": true,
+            "android:launchMode": "singleTask",
+            "android:theme": "@style/SplashTheme"
+          },
+          "children": [{
+            "tag": "intent-filter",
+            "children": [{
+                "tag": "action",
+                "parameters": {
+                  "android:name": "android.intent.action.MAIN"
+                }
+              },
+              {
+                "tag": "category",
+                "parameters": {
+                  "android:name": "android.intent.category.LAUNCHER"
+                }
+              }
+            ]
+          }]
+        },
+        {
+          "tag": "activity",
+          "parameters": {
+            "android:name": "com.facebook.react.devsupport.DevSettingsActivity",
+          }
+        },
+        {
+          "tag": "activity",
+          "parameters": {
+            "android:name": "com.ahmedadeltito.photoeditor.PhotoEditorActivity",
+          }
+        },
+        {
+          "tag": "service",
+          "parameters": {
+            "android:name": "io.invertase.firebase.messaging.RNFirebaseMessagingService",
+          },
+          "children": [{
+            "tag": "intent-filter",
+            "children": [{
+              "tag": "action",
+              "parameters": {
+                "android:name": "com.google.firebase.MESSAGING_EVENT"
+              }
+            }]
+          }]
+        }
+      ]
+    }]
+  }
+}

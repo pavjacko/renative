@@ -18,6 +18,7 @@
     },
     "engines": {
         "@rnv/engine-rn": "source:rnv",
+        "@rnv/engine-rn64": "source:rnv",
         "@rnv/engine-rn-web": "source:rnv",
         "@rnv/engine-rn-next": "source:rnv",
         "@rnv/engine-rn-electron": "source:rnv",
@@ -101,6 +102,9 @@
     "platforms": {
         "web": {
             "engine": "engine-rn-next"
+        },
+        "ios": {
+            "engine": "engine-rn64"
         },
         "android": {
           "mainActivity": {
