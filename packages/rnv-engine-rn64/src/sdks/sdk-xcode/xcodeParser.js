@@ -336,9 +336,9 @@ const _parseXcodeProject = (c, platform) => new Promise((resolve) => {
 
         // FONTS
         // Cocoapods take care of this
-        c.pluginConfigiOS.embeddedFontSources.forEach((v) => {
-            xcodeProj.addResourceFile(v, { variantGroup: false });
-        });
+        // c.pluginConfigiOS.embeddedFontSources.forEach((v) => {
+        //     xcodeProj.addResourceFile(v, { variantGroup: false });
+        // });
 
         fsWriteFileSync(projectPath, xcodeProj.writeSync());
         resolve();
