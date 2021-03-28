@@ -1,4 +1,4 @@
-const blacklist = require('metro-config/src/defaults/blacklist');
+const blacklist = require('metro-config/src/defaults/exclusionList');
 const path = require('path');
 
 export const withRNV = (config) => {
@@ -18,7 +18,7 @@ export const withRNV = (config) => {
     const cnf = {
         ...config,
         resolver: {
-            blacklistRE: blacklist([
+            blockList: blacklist([
                 /platformBuilds\/.*/,
                 /buildHooks\/.*/,
                 /projectConfig\/.*/,

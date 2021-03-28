@@ -13,7 +13,7 @@ import {
 import { parseXcscheme } from './xcschemeParser';
 import { parsePodFile } from './podfileParser';
 import { parseXcodeProject } from './xcodeParser';
-import { parseAppDelegate } from './swiftParser';
+import { parseAppDelegate } from './objcParser';
 
 const { getAppleDevices } = SDKManager.Apple;
 

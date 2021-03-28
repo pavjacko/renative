@@ -12,6 +12,8 @@ target 'RNVApp' do
     :hermes_enabled => false
   )
 
+  {{PLUGIN_PATHS}}
+
   # target 'RNVAppTests' do
   #   inherit! :complete
   #   # Pods for testing

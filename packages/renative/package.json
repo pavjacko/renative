@@ -52,16 +52,13 @@
         "type": "git",
         "url": "git://github.com/pavjacko/renative.git"
     },
-    "scripts": {
-        "kooo": "echo bitch"
-    },
-    "dependencies": {
-        "@noriginmedia/react-spatial-navigation": "2.12.1",
-        "@reach/router": "1.3.4",
-        "history": "^4.9.0",
-        "react": "16.13.1",
-        "react-dom": "16.13.1",
-        "react-native": "0.61.2"
+    "peerDependencies": {
+      "@noriginmedia/react-spatial-navigation": ">=2.12.1",
+      "@reach/router": ">=1.3.4",
+      "history": ">=4.9.0",
+      "react": ">=16.13.1",
+      "react-dom": ">=16.13.1",
+      "react-native": ">=0.61.2"
     },
     "devDependencies": {
         "babel-eslint": "8.2.6",

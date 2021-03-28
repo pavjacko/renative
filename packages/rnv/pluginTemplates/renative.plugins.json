@@ -109,7 +109,7 @@
             }
         },
         "react-native-gesture-handler": {
-            "version": "1.4.1",
+            "version": "1.10.3",
             "ios": {
                 "podName": "RNGestureHandler",
                 "path": "node_modules/react-native-gesture-handler"

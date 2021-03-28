@@ -45,7 +45,6 @@
         "@react-navigation/material-top-tabs": "5.1.1",
         "@react-navigation/web": "1.0.0-alpha.9",
         "@react-native-community/masked-view": "0.1.6",
-        "@react-native-community/viewpager": "source:rnv",
         "react-native-safe-area-context": "source:rnv",
         "react-native-safe-area-view": "source:rnv",
         "react-native-screens": "source:rnv",

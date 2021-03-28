@@ -263,7 +263,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\nexport NODE_BINARY=node\n../../../../node_modules/react-native/scripts/react-native-xcode.sh\n";
+			shellScript = "";
 		};
 		5ECFA2F4CDCA682DE1B05CEB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

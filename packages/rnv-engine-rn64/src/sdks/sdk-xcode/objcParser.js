@@ -24,7 +24,7 @@ export const parseAppDelegate = (
 ) => new Promise((resolve) => {
     const newPort = c.runtime?.port;
     logTask('parseAppDelegateSync', `ip:${ip} port:${newPort}`);
-    const appDelegate = 'AppDelegate.swift';
+    const appDelegate = 'AppDelegate.m';
 
     const entryFile = getEntryFile(c, platform);
 
@@ -37,7 +37,8 @@ export const parseAppDelegate = (
             entryFile
         }", fallbackResource: nil)`;
     } else {
-        bundle = `URL(string: "http://${ip}:${newPort}/${entryFile}.bundle?platform=ios")`;
+        // bundle = `URL(string: "http://${ip}:${newPort}/${entryFile}.bundle?platform=ios")`;
+        bundle = `[NSURL URLWithString: @"http://${ip}:${newPort}/${entryFile}.bundle?platform=ios"];`;
     }
 
     // PLUGINS

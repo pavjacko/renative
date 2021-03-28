@@ -238,7 +238,7 @@ const _parseXcodeProject = (c, platform) => new Promise((resolve) => {
                     xcodeProj.addSourceFile(
                         filePath,
                         null,
-                        '200132F21F6BF9CF00450340'
+                        '13B07FAE1A68108700A75B9A'
                     );
                 } else {
                     logWarning(`You are trying to inject native file which does not exists: ${
@@ -267,7 +267,7 @@ const _parseXcodeProject = (c, platform) => new Promise((resolve) => {
                         xcodeProj.addSourceFile(
                             v,
                             null,
-                            '200132F21F6BF9CF00450340'
+                            '13B07FAE1A68108700A75B9A'
                         );
                     });
                 }
@@ -276,7 +276,7 @@ const _parseXcodeProject = (c, platform) => new Promise((resolve) => {
                         xcodeProj.addHeaderFile(
                             v,
                             null,
-                            '200132F21F6BF9CF00450340'
+                            '13B07FAE1A68108700A75B9A'
                         );
                     });
                 }
@@ -336,9 +336,9 @@ const _parseXcodeProject = (c, platform) => new Promise((resolve) => {
 
         // FONTS
         // Cocoapods take care of this
-        // c.pluginConfigiOS.embeddedFontSources.forEach((v) => {
-        //     xcodeProj.addResourceFile(v, { variantGroup: false });
-        // });
+        c.pluginConfigiOS.embeddedFontSources.forEach((v) => {
+            xcodeProj.addResourceFile(v, { variantGroup: false });
+        });
 
         fsWriteFileSync(projectPath, xcodeProj.writeSync());
         resolve();
