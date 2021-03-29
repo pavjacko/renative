@@ -2,7 +2,7 @@ import path from 'path';
 import child_process from 'child_process';
 import inquirer from 'inquirer';
 import crypto from 'crypto';
-import { Exec, Logger, Constants, Common, FileUtils, EngineManager, Resolver, PlatformManager, ProjectManager, SDKManager } from 'rnv';
+import { Exec, Logger, Constants, Common, FileUtils, EngineManager, Resolver, PlatformManager, ProjectManager, SDKManager, PluginManager } from 'rnv';
 import { registerDevice } from './fastlane';
 import { getAppFolderName } from './common';
 import {
@@ -16,6 +16,7 @@ import { parseXcodeProject } from './xcodeParser';
 import { parseAppDelegate } from './objcParser';
 
 const { getAppleDevices } = SDKManager.Apple;
+const { parsePlugins } = PluginManager;
 
 const {
     fsExistsSync,
@@ -30,6 +31,7 @@ const {
     getAppFolder,
     getConfigProp,
     getIP,
+    getFlavouredProp
 } = Common;
 const { generateEnvVars } = EngineManager;
 const { doResolve } = Resolver;
@@ -816,23 +818,22 @@ const configureXcodeProject = async (c) => {
     };
 
     // FONTS
-    // parsePlugins(c, platform, (plugin, pluginPlat) => {
-    //     // const ignoreProjectFonts = getFlavouredProp(
-    //     //     c,
-    //     //     pluginPlat,
-    //     //     'ignoreProjectFonts'
-    //     // );
-    //
-    //     // TODO: enable this once mmoved to modular_headers Podfile
-    //     // if (ignoreProjectFonts) {
-    //     //     ignoreProjectFonts.forEach((v) => {
-    //     //         if (!c.pluginConfigiOS.ignoreProjectFonts.includes(v)) {
-    //     //             logDebug(`Igonoring font: ${v}`);
-    //     //             c.pluginConfigiOS.ignoreProjectFonts.push(v);
-    //     //         }
-    //     //     });
-    //     // }
-    // });
+    parsePlugins(c, platform, (plugin, pluginPlat) => {
+        const ignoreProjectFonts = getFlavouredProp(
+            c,
+            pluginPlat,
+            'ignoreProjectFonts'
+        );
+
+        if (ignoreProjectFonts) {
+            ignoreProjectFonts.forEach((v) => {
+                if (!c.pluginConfigiOS.ignoreProjectFonts.includes(v)) {
+                    logDebug(`Igonoring font: ${v}`);
+                    c.pluginConfigiOS.ignoreProjectFonts.push(v);
+                }
+            });
+        }
+    });
     const embeddedFontSourcesCheck = [];
     parseFonts(c, (font, dir) => {
         if (font.includes('.ttf') || font.includes('.otf')) {

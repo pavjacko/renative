@@ -64,7 +64,7 @@
         "react-native-safe-area-view": "0.14.5",
         "react-native-screens": "2.2.0",
         "react-native-tab-view": "2.13.0",
-        "react-native-vector-icons": "7.1.0",
+        "react-native-vector-icons": "8.1.0",
         "react-native-web": "0.15.1",
         "react-native-web-image-loader": "0.0.5",
         "renative": "~0.32.0-RC"
@@ -91,7 +91,7 @@
         "renative-template-kitchen-sink": "~0.32.0-RC",
         "rnv": "~0.32.0-RC",
         "wait-on": "5.0.1",
-        "xcode": "2.1.0"
+        "xcode": "3.0.1"
     },
     "optionalDependencies": {
         "ios-deploy": "1.10.0"

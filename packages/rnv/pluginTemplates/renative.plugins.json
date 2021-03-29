@@ -878,7 +878,7 @@
             "version": "7.0.4"
         },
         "react-native-vector-icons": {
-            "version": "7.1.0",
+            "version": "8.1.0",
             "ios": {
                 "podName": "RNVectorIcons",
                 "ignoreProjectFonts": [
@@ -896,7 +896,8 @@
                     "MaterialIcons.ttf",
                     "Octicons.ttf",
                     "SimpleLineIcons.ttf",
-                    "Zocial.ttf"
+                    "Zocial.ttf",
+                    "Fontisto.ttf"
                 ]
             },
             "tvos": {

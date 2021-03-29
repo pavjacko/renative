@@ -19,7 +19,7 @@
             "engine": "engine-rn",
             "npm": {
                 "devDependencies": {
-                    "xcode": "2.1.0"
+                    "xcode": "3.0.1"
                 },
                 "optionalDependencies": {
                     "ios-deploy": "1.10.0"
@@ -58,7 +58,7 @@
         "tvos": {
             "npm": {
                 "devDependencies": {
-                    "xcode": "2.1.0"
+                    "xcode": "3.0.1"
                 },
                 "optionalDependencies": {
                     "ios-deploy": "1.10.0"
