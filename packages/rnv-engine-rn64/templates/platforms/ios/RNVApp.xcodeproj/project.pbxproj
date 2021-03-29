@@ -96,6 +96,20 @@
 			name = RNVApp;
 			sourceTree = "<group>";
 		};
+		2015E10F261124D10011889F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2015E110261125500011889F /* assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +130,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				2015E110261125500011889F /* assets */,
+				2015E10F261124D10011889F /* Resources */,
 				13B07FAE1A68108700A75B9A /* RNVApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* RNVAppTests */,
@@ -145,7 +161,6 @@
 				0DF6B0760CD32879F4EF8C29 /* Pods-RNVApp-RNVAppTests.debug.xcconfig */,
 				6D6231F366898085791D1781 /* Pods-RNVApp-RNVAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
