@@ -113,10 +113,23 @@ const runCocoaPods = async (c) => {
         }
 
         try {
-            await executeAsync(c, 'pod install', {
-                cwd: appFolder,
-                env: process.env
-            });
+            // Apple Silicon shenanigans
+            if (c.process.platform === 'darwin' && c.process.arch === 'arm64') {
+                logWarning(
+                    'It seems that you are running on an Apple Silicon machine (arch arm64).\nBecause of this `pod install` command needs to run with sudo and we need to install `ffi` x86_64 version first, so you will be asked for the password.'
+                );
+
+                await executeAsync(c, 'sudo arch -x86_64 gem install ffi && arch -x86_64 pod install', {
+                    cwd: appFolder,
+                    env: process.env,
+                    interactive: true
+                });
+            } else {
+                await executeAsync(c, 'pod install', {
+                    cwd: appFolder,
+                    env: process.env
+                });
+            }
         } catch (e) {
             const s = e?.toString ? e.toString() : '';
             const isGenericError = s.includes('No provisionProfileSpecifier configured')
