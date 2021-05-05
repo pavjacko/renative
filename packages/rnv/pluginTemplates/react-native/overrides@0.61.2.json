@@ -2,6 +2,9 @@
   "overrides": {
     "Libraries/Image/RCTUIImageViewAnimated.m": {
       "_currentFrame.CGImage;": "_currentFrame.CGImage ;} else { [super displayLayer:layer];"
+    },
+    "Libraries/Components/Touchable/Touchable.js": {
+      "} else if (evt.eventType === 'select') {": "} else if (evt.eventType === 'select' && Platform.OS !== 'android') {"
     }
   }
 }
