@@ -409,7 +409,7 @@ More in-depth explanation how ReNative internals work
 
 `rnv run -p firetv`
 
-[Documentation for FireTV Platform](https://renative.org/docs/platform-firetv)
+[Documentation for FireTV Platform](https://renative.org/docs/next/platforms/firetv)
 
 ---
 
