@@ -154,11 +154,25 @@ export const installPackageDependencies = async (c, failOnError = false) => {
     const yarnLockPath = path.join(c.paths.project.dir, 'yarn.lock');
     const npmLockPath = path.join(c.paths.project.dir, 'package-lock.json');
     let command = 'npm install';
-    if (fsExistsSync(yarnLockPath)) {
-        command = 'yarn';
-    } else if (fsExistsSync(npmLockPath)) {
-        command = 'npm install';
-    } else if (isYarnInstalled) {
+
+
+    const yarnLockExists = fsExistsSync(yarnLockPath);
+    const packageLockExists = fsExistsSync(npmLockPath);
+
+    if (yarnLockExists || packageLockExists) {
+        // a lock file exists, defaulting to whichever is present
+        if (yarnLockExists && !isYarnInstalled) throw new Error('You have a yarn.lock file but you don\'t have yarn installed. Install it or delete yarn.lock');
+        command = yarnLockExists ? 'yarn' : 'npm install';
+    } else if (c.program.packageManager) {
+        // no lock file check cli option
+        if (['yarn', 'npm'].includes(c.program.packageManager)) {
+            command = c.program.packageManager === 'yarn' ? 'yarn' : 'npm install';
+            if (command === 'yarn' && !isYarnInstalled) throw new Error('You specified yarn as packageManager but it\'s not installed');
+        } else {
+            throw new Error(`Unsupported package manager ${c.program.packageManager}. Only yarn and npm are supported at the moment.`);
+        }
+    } else {
+        // no cli option either, asking
         const { packageManager } = await inquirerPrompt({
             type: 'list',
             name: 'packageManager',
@@ -168,6 +182,7 @@ export const installPackageDependencies = async (c, failOnError = false) => {
         });
         if (packageManager === 'yarn') command = 'yarn';
     }
+
     logTask('installPackageDependencies', `packageManager:(${command})`);
 
     try {
