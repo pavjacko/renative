@@ -427,6 +427,14 @@ export const PARAM_KEYS = {
         isRequired: true,
         description: 'Use custom name for ./renative.json. (applies only at root level)'
     },
+    packageManager: {
+        value: 'value',
+        description: 'Specify the desired package manager to be used',
+        examples: [
+            '--packageManager yarn',
+            '--packageManager npm'
+        ]
+    }
 };
 
 Object.keys(PARAM_KEYS).forEach((k) => {

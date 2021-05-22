@@ -1,5 +1,6 @@
 import inquirer from 'inquirer';
 import path from 'path';
+import { build } from 'esbuild';
 import { logDebug, logHook, logInfo, logWarning } from '../systemManager/logger';
 import { executeAsync } from '../systemManager/exec';
 import { fsExistsSync, copyFolderContentsRecursiveSync } from '../systemManager/fileutils';
@@ -60,18 +61,17 @@ export const buildHooks = async (c) => {
         }
     }
 
-    // New projects are not ready to compile babel
-    const isBabelResolved = doResolve('@babel/cli');
-    if (!c.runtime.isFirstRunAfterNew && !c.files.project.config?.isNew && isBabelResolved) {
+    if (!c.runtime.isFirstRunAfterNew && !c.files.project.config?.isNew) {
         if (shouldBuildHook && !c.isBuildHooksReady) {
             try {
                 logHook('buildHooks', 'Build hooks not complied. BUILDING...');
-                // removeDirsSync([c.paths.buildHooks.dist.dir]);
-                await executeAsync(
-                    c,
-                    `babel ${c.paths.buildHooks.dir} -d ${c.paths.buildHooks.dist.dir} --source-maps --retain-lines`,
-                    { cwd: c.paths.project.dir, silent: true }
-                );
+                await build({
+                    entryPoints: [`${c.paths.buildHooks.dir}/index.js`],
+                    bundle: true,
+                    platform: 'node',
+                    external: [...Object.keys(c.files.project.package.dependencies || {}), ...Object.keys(c.files.project.package.devDependencies || {})], // exclude everything that's present in node_modules
+                    outfile: `${c.paths.buildHooks.dist.dir}/index.js`,
+                });
             } catch (e) {
                 // Fail Builds instead of warn when hook fails
                 return Promise.reject(`BUILD_HOOK Failed with error: ${e}`);
@@ -84,8 +84,6 @@ export const buildHooks = async (c) => {
         c.buildHooks = h.hooks;
         c.buildPipes = h.pipes;
         h = require(c.paths.buildHooks.dist.index);
-    } else if (!isBabelResolved) {
-        logWarning('Cannot resolve @babel/cli, ensure you added it to your root package.json');
     }
 
     return true;
