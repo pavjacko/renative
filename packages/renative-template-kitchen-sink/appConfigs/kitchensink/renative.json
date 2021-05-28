@@ -148,7 +148,7 @@
             "buildSchemes": {
                 "debug": {
                     "bundleAssets": false,
-                    "environment": "developement"
+                    "environment": "development"
                 },
                 "release": {
                     "bundleAssets": true,
@@ -161,7 +161,7 @@
             "buildSchemes": {
                 "debug": {
                     "bundleAssets": false,
-                    "environment": "developement"
+                    "environment": "development"
                 },
                 "release": {
                     "bundleAssets": true,
