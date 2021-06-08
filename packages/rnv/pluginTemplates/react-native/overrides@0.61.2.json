@@ -2,6 +2,9 @@
   "overrides": {
     "Libraries/Image/RCTUIImageViewAnimated.m": {
       "_currentFrame.CGImage;": "_currentFrame.CGImage ;} else { [super displayLayer:layer];"
+    },
+    "Libraries/Image/AssetSourceResolver.js": {
+      "this.fromSource(path + getScaledAssetPath(this.asset));": "this.fromSource(path + getScaledAssetPath(this.asset).replace(/\\.\\.\\//g, '_'));"
     }
   }
 }
