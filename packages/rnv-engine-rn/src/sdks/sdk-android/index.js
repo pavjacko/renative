@@ -158,7 +158,7 @@ export const runAndroid = async (c, defaultTarget) => {
 
     await resetAdb(c);
 
-    if (target && net.isIP(target)) {
+    if (target && net.isIP(target.split(':')[0])) {
         await connectToWifiDevice(c, target);
     }
 

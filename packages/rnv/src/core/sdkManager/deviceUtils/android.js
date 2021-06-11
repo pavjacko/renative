@@ -450,14 +450,18 @@ const getEmulatorName = async (c, words) => {
     return emulatorName;
 };
 
-export const connectToWifiDevice = async (c, ip) => {
+export const connectToWifiDevice = async (c, target) => {
+    let connect_str = 'connect '+target;
+    if(target.split(':')[1] === null){
+        connect_str = 'connect '+target+':5555';
+    }
     const deviceResponse = await execCLI(
         c,
         CLI_ANDROID_ADB,
-        `connect ${ip}:5555`
+        connect_str
     );
     if (deviceResponse.includes('connected')) return true;
-    logError(`Failed to connect to ${ip}:5555`, false, true);
+    logError(`Failed to ${connect_str}`, false, true);
     return false;
 };
 
