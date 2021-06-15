@@ -13,7 +13,7 @@ import UserNotifications
 {{APPDELEGATE_IMPORTS}}
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {{APPDELEGATE_EXTENSIONS}} {
 
     var window: UIWindow?
     let moduleName = "App"

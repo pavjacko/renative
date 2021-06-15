@@ -796,6 +796,7 @@ const configureXcodeProject = async (c) => {
         ignoreProjectFonts: [],
         pluginAppDelegateImports: '',
         pluginAppDelegateMethods: '',
+        pluginAppDelegateExtensions: '',
         appDelegateMethods: {
             application: {
                 didFinishLaunchingWithOptions: [],
@@ -807,7 +808,10 @@ const configureXcodeProject = async (c) => {
                 didReceive: [],
                 didRegister: [],
                 didRegisterForRemoteNotificationsWithDeviceToken: [],
-                continue: []
+                continue: [],
+                didConnectCarInterfaceController: [],
+                didDisconnectCarInterfaceController: []
+
             },
             userNotificationCenter: {
                 willPresent: []

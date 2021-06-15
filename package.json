@@ -81,6 +81,7 @@
     "devDependencies": {
         "babel-eslint": "8.2.6",
         "babel-jest": "24.9.0",
+        "babel-plugin-polyfill-corejs2": "0.2.2",
         "lerna": "3.16.4",
         "eslint": "6.2.2",
         "eslint-plugin-detox": "1.0.0",

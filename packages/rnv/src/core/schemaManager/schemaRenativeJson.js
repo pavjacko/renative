@@ -346,6 +346,12 @@ const commonIosProps = {
             },
             didRegisterForRemoteNotificationsWithDeviceToken: {
                 type: 'array',
+            },
+            didConnectCarInterfaceController: {
+                type: 'array',
+            },
+            didDisconnectCarInterfaceController: {
+                type: 'array',
             }
         }
     },
@@ -354,6 +360,9 @@ const commonIosProps = {
         type: 'object'
     },
     appDelegateImports: {
+        type: 'array'
+    },
+    appDelegateExtensions: {
         type: 'array'
     },
 };

@@ -3033,6 +3033,23 @@
         },
         "@lightningjs/sdk": {
             "version": "3.0.0"
+        },
+        "react-native-carplay": {
+            "version": "2.0.0",
+            "ios": {
+                "path": "node_modules/react-native-carplay",
+                "podName": "react-native-carplay",
+                "appDelegateImports": ["CarPlay", "react_native_carplay"],
+                "appDelegateExtensions": ["CPApplicationDelegate"],
+                "appDelegateMethods": {
+                    "application": {
+                        "didConnectCarInterfaceController": [
+                            "RNCarPlay.connect(with: interfaceController, window: window)"
+                        ],
+                        "didDisconnectCarInterfaceController": ["RNCarPlay.disconnect()"]
+                    }
+                }
+            }
         }
     }
 }
