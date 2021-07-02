@@ -147,7 +147,7 @@ export const themeStyles = StyleSheet.create({
 });
 
 export const ROUTES = {
-    HOME: '/',
+    HOME: 'home',
     MY_PAGE: 'my-page',
     MODAL: 'modal'
 };
