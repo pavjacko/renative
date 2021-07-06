@@ -7,7 +7,6 @@ const { logTask } = Logger;
 const { jetifyIfRequired } = NPMUtils;
 const {
     IOS,
-    TVOS,
     ANDROID,
     ANDROID_TV,
     FIRE_TV,
@@ -37,7 +36,6 @@ export const taskRnvConfigure = async (c, parentTask, originTask) => {
 
     switch (c.platform) {
         case IOS:
-        case TVOS:
             await configureXcodeProject(c);
             return true;
         case ANDROID:
@@ -60,7 +58,6 @@ export default {
     params: PARAMS.withBase(PARAMS.withConfigure()),
     platforms: [
         IOS,
-        TVOS,
         ANDROID,
         ANDROID_TV,
         FIRE_TV,

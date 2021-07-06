@@ -4,7 +4,7 @@ import { Exec, Logger, Constants, Common } from 'rnv';
 const { getConfigProp, getAppId } = Common;
 const { chalk, logTask, logWarning, logSuccess } = Logger;
 const { executeAsync } = Exec;
-const { IOS, TVOS } = Constants;
+const { IOS } = Constants;
 
 export const registerDevice = async (c) => {
     logTask(`registerDevice:${c.platform}`);
@@ -49,7 +49,7 @@ export const updateProfile = async (c, appConfigId) => {
 
     // if (appConfigId) await setAppConfig(c, appConfigId);
 
-    if (c.platform !== IOS && c.platform !== TVOS) {
+    if (c.platform !== IOS) {
         return Promise.reject(
             `updateProfile:platform ${c.platform} not supported`
         );

@@ -1,30 +1,23 @@
 import path from 'path';
-import { INJECTABLE_CONFIG_PROPS, RN_BABEL_CONFIG_NAME } from '../constants';
+import { inquirerPrompt } from '../../cli/prompt';
 import {
-    getAppFolder,
+    getAppFolder, getBuildsFolder,
+    getConfigProp,
     // getAppSubFolder,
     getPlatformBuildDir,
-    getPlatformProjectDir,
-    getBuildsFolder,
-    getConfigProp,
-    getTimestampPathsConfig
+    getPlatformProjectDir, getTimestampPathsConfig
 } from '../common';
-import {
-    cleanFolder,
-    copyFolderContentsRecursiveSync,
-    copyFileSync,
-    mkdirSync,
-    writeFileSync,
-    fsWriteFileSync,
-    fsExistsSync,
-    fsReaddirSync,
-    fsReadFileSync
-} from '../systemManager/fileutils';
-import { isPlatformActive } from '../platformManager';
-import { chalk, logTask, logWarning, logDebug, logInfo, getCurrentCommand } from '../systemManager/logger';
-import { copyTemplatePluginsSync } from '../pluginManager';
-import { inquirerPrompt } from '../../cli/prompt';
+import { INJECTABLE_CONFIG_PROPS, RN_BABEL_CONFIG_NAME } from '../constants';
 import { getEngineRunnerByPlatform } from '../engineManager';
+import { isPlatformActive } from '../platformManager';
+import { copyTemplatePluginsSync } from '../pluginManager';
+import {
+    cleanFolder, copyFileSync, copyFolderContentsRecursiveSync, fsExistsSync,
+    fsReaddirSync,
+    fsReadFileSync, fsWriteFileSync, mkdirSync,
+    writeFileSync
+} from '../systemManager/fileutils';
+import { chalk, getCurrentCommand, logDebug, logInfo, logTask, logWarning } from '../systemManager/logger';
 
 
 export const checkAndCreateGitignore = async (c) => {
@@ -394,6 +387,7 @@ const SYNCED_DEPS = [
     '@rnv/engine-rn-next',
     '@rnv/engine-rn-web',
     '@rnv/engine-rn-electron',
+    '@rnv/engine-rn-tvos',
     'renative',
     'renative-template-hello-world',
     'renative-template-blank'

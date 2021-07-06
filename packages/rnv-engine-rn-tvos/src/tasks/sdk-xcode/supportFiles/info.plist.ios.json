@@ -1,0 +1,33 @@
+{
+    "CFBundleDevelopmentRegion": "$(DEVELOPMENT_LANGUAGE)",
+    "CFBundleDisplayName": "{{PLUGIN_APPTITLE}}",
+    "CFBundleExecutable": "$(EXECUTABLE_NAME)",
+    "CFBundleIdentifier": "$(PRODUCT_BUNDLE_IDENTIFIER)",
+    "CFBundleInfoDictionaryVersion": "6.0",
+    "CFBundleName": "$(PRODUCT_NAME)",
+    "CFBundlePackageType": "APPL",
+    "CFBundleShortVersionString": "{{PLUGIN_VERSION_STRING}}",
+    "CFBundleURLTypes": [],
+    "CFBundleVersion": "1",
+    "LSApplicationQueriesSchemes": [],
+    "LSRequiresIPhoneOS": true,
+    "NSAppTransportSecurity": {
+        "NSAllowsArbitraryLoads": true
+    },
+    "UIAppFonts": [],
+    "UIBackgroundModes": [
+        "remote-notification"
+    ],
+    "UIRequiredDeviceCapabilities": [
+        "armv7"
+    ],
+    "UILaunchStoryboardName": "LaunchScreen",
+    "UIRequiresFullScreen": true,
+    "UISupportedInterfaceOrientations": [
+        "UIInterfaceOrientationPortrait"
+    ],
+    "UISupportedInterfaceOrientations~ipad": [
+        "UIInterfaceOrientationPortrait"
+    ],
+    "UIViewControllerBasedStatusBarAppearance": false
+}

@@ -12,7 +12,6 @@ const { logTask } = Logger;
 const {
     PARAMS,
     IOS,
-    TVOS,
     ANDROID,
     ANDROID_TV,
     FIRE_TV,
@@ -36,7 +35,6 @@ export const taskRnvLog = async (c, parentTask, originTask) => {
         case ANDROID_WEAR:
             return runAndroidLog(c);
         case IOS:
-        case TVOS:
             return runAppleLog(c);
         default:
             return logErrorPlatform(c);
@@ -50,7 +48,6 @@ export default {
     params: PARAMS.withBase(),
     platforms: [
         IOS,
-        TVOS,
         ANDROID,
         ANDROID_TV,
         FIRE_TV,

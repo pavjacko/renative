@@ -13,7 +13,7 @@ const { fsExistsSync, writeFileSync, fsWriteFileSync } = FileUtils;
 const { doResolve } = Resolver;
 const { chalk, logTask, logWarning } = Logger;
 const { inquirerPrompt } = Prompt;
-const { IOS, TVOS } = Constants;
+const { IOS } = Constants;
 const { parsePlugins } = PluginManager;
 
 
@@ -151,11 +151,6 @@ const _parseXcodeProject = (c, platform) => new Promise((resolve) => {
         if (platform === IOS) {
             xcodeProj.updateBuildProperty(
                 'IPHONEOS_DEPLOYMENT_TARGET',
-                deploymentTarget
-            );
-        } else if (platform === TVOS) {
-            xcodeProj.updateBuildProperty(
-                'TVOS_DEPLOYMENT_TARGET',
                 deploymentTarget
             );
         }

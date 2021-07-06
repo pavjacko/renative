@@ -8,6 +8,10 @@
             "version": "0.32.0-alpha.43",
             "id": "engine-rn"
         },
+        "@rnv/engine-rn-tvos": {
+            "version": "0.32.0-alpha.43",
+            "id": "engine-rn-tvos"
+        },
         "@rnv/engine-rn-web": {
             "version": "0.32.0-alpha.43",
             "id": "engine-rn-web"
@@ -50,7 +54,7 @@
             "engine": "engine-rn"
         },
         "tvos": {
-            "engine": "engine-rn"
+            "engine": "engine-rn-tvos"
         },
         "macos": {
             "engine": "engine-rn-electron"

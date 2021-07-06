@@ -1,3 +1,6 @@
+# require_relative '/Users/aurimas/projects/rs/renative/node_modules/react-native/scripts/react_native_pods'
+# require_relative '/Users/aurimas/projects/rs/renative/node_modules/@react-native-community/cli-platform-ios/native_modules'
+
 {{PLUGIN_PODFILE_SOURCES}}
 platform :tvos, '{{PLUGIN_DEPLOYMENT_TARGET}}'
 use_frameworks!
@@ -8,7 +11,6 @@ use_frameworks!
 
 target 'RNVApp' do
   # Pods for RNVApp
-  platform :ios, '9.0'
 
   pod 'FBLazyVector', :path => "{{PATH_REACT_NATIVE}}/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "{{PATH_REACT_NATIVE}}/Libraries/FBReactNativeSpec"
@@ -18,7 +20,7 @@ target 'RNVApp' do
   pod 'React-Core', :path => '{{PATH_REACT_NATIVE}}/'
   pod 'React-CoreModules', :path => '{{PATH_REACT_NATIVE}}/React/CoreModules'
   pod 'React-Core/DevSupport', :path => '{{PATH_REACT_NATIVE}}/'
-  # pod 'React-RCTActionSheet', :path => '{{PATH_REACT_NATIVE}}/Libraries/ActionSheetIOS'
+  pod 'React-RCTActionSheet', :path => '{{PATH_REACT_NATIVE}}/Libraries/ActionSheetIOS'
   pod 'React-RCTAnimation', :path => '{{PATH_REACT_NATIVE}}/Libraries/NativeAnimation'
   pod 'React-RCTBlob', :path => '{{PATH_REACT_NATIVE}}/Libraries/Blob'
   pod 'React-RCTImage', :path => '{{PATH_REACT_NATIVE}}/Libraries/Image'
@@ -26,14 +28,14 @@ target 'RNVApp' do
   pod 'React-RCTNetwork', :path => '{{PATH_REACT_NATIVE}}/Libraries/Network'
   pod 'React-RCTSettings', :path => '{{PATH_REACT_NATIVE}}/Libraries/Settings'
   pod 'React-RCTText', :path => '{{PATH_REACT_NATIVE}}/Libraries/Text'
-  # pod 'React-RCTVibration', :path => '{{PATH_REACT_NATIVE}}/Libraries/Vibration'
+  pod 'React-RCTVibration', :path => '{{PATH_REACT_NATIVE}}/Libraries/Vibration'
   pod 'React-Core/RCTWebSocket', :path => '{{PATH_REACT_NATIVE}}/'
 
   pod 'React-cxxreact', :path => '{{PATH_REACT_NATIVE}}/ReactCommon/cxxreact'
   pod 'React-jsi', :path => '{{PATH_REACT_NATIVE}}/ReactCommon/jsi'
   pod 'React-jsiexecutor', :path => '{{PATH_REACT_NATIVE}}/ReactCommon/jsiexecutor'
   pod 'React-jsinspector', :path => '{{PATH_REACT_NATIVE}}/ReactCommon/jsinspector'
-  pod 'ReactCommon/jscallinvoker', :path => "{{PATH_REACT_NATIVE}}/ReactCommon"
+  pod 'React-callinvoker', :path => "{{PATH_REACT_NATIVE}}/ReactCommon/callinvoker"
   pod 'ReactCommon/turbomodule/core', :path => "{{PATH_REACT_NATIVE}}/ReactCommon"
   pod 'Yoga', :path => '{{PATH_REACT_NATIVE}}/ReactCommon/yoga'
 
@@ -45,6 +47,8 @@ end
 
 target 'RNVAppTVOS' do
 
+  # use_flipper_tvos!
+
 
   pod 'FBLazyVector', :path => "{{PATH_REACT_NATIVE}}/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "{{PATH_REACT_NATIVE}}/Libraries/FBReactNativeSpec"
@@ -54,7 +58,7 @@ target 'RNVAppTVOS' do
   pod 'React-Core', :path => '{{PATH_REACT_NATIVE}}/'
   pod 'React-CoreModules', :path => '{{PATH_REACT_NATIVE}}/React/CoreModules'
   pod 'React-Core/DevSupport', :path => '{{PATH_REACT_NATIVE}}/'
-  # pod 'React-RCTActionSheet', :path => '{{PATH_REACT_NATIVE}}/Libraries/ActionSheetIOS'
+  pod 'React-RCTActionSheet', :path => '{{PATH_REACT_NATIVE}}/Libraries/ActionSheetIOS'
   pod 'React-RCTAnimation', :path => '{{PATH_REACT_NATIVE}}/Libraries/NativeAnimation'
   pod 'React-RCTBlob', :path => '{{PATH_REACT_NATIVE}}/Libraries/Blob'
   pod 'React-RCTImage', :path => '{{PATH_REACT_NATIVE}}/Libraries/Image'
@@ -62,14 +66,15 @@ target 'RNVAppTVOS' do
   pod 'React-RCTNetwork', :path => '{{PATH_REACT_NATIVE}}/Libraries/Network'
   pod 'React-RCTSettings', :path => '{{PATH_REACT_NATIVE}}/Libraries/Settings'
   pod 'React-RCTText', :path => '{{PATH_REACT_NATIVE}}/Libraries/Text'
-  # pod 'React-RCTVibration', :path => '{{PATH_REACT_NATIVE}}/Libraries/Vibration'
+  pod 'React-RCTVibration', :path => '{{PATH_REACT_NATIVE}}/Libraries/Vibration'
   pod 'React-Core/RCTWebSocket', :path => '{{PATH_REACT_NATIVE}}/'
 
   pod 'React-cxxreact', :path => '{{PATH_REACT_NATIVE}}/ReactCommon/cxxreact'
   pod 'React-jsi', :path => '{{PATH_REACT_NATIVE}}/ReactCommon/jsi'
   pod 'React-jsiexecutor', :path => '{{PATH_REACT_NATIVE}}/ReactCommon/jsiexecutor'
   pod 'React-jsinspector', :path => '{{PATH_REACT_NATIVE}}/ReactCommon/jsinspector'
-  pod 'ReactCommon/jscallinvoker', :path => "{{PATH_REACT_NATIVE}}/ReactCommon"
+  pod 'React-callinvoker', :path => "{{PATH_REACT_NATIVE}}/ReactCommon/callinvoker"
+
   pod 'ReactCommon/turbomodule/core', :path => "{{PATH_REACT_NATIVE}}/ReactCommon"
   pod 'Yoga', :path => '{{PATH_REACT_NATIVE}}/ReactCommon/yoga'
 
@@ -102,5 +107,9 @@ pre_install do |installer|
     end
   end
 end
+
+# post_install do |installer|
+#   flipper_post_install(installer)
+# end
 
 {{PLUGIN_PODFILE_INJECT}}

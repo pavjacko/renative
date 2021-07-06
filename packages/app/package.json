@@ -56,7 +56,8 @@
         "react": "16.13.1",
         "react-art": "16.13.1",
         "react-dom": "16.13.1",
-        "react-native": "0.61.2",
+        "react-native": "0.63.4",
+        "react-native-tvos": "npm:react-native-tvos@latest",
         "react-native-gesture-handler": "1.4.1",
         "react-native-google-cast": "github:hosek/react-native-google-cast#sdk4.4.5",
         "react-native-reanimated": "1.0.0-alpha.12",
@@ -72,6 +73,7 @@
     "devDependencies": {
         "@rnv/engine-lightning": "~0.32.0-RC",
         "@rnv/engine-rn": "~0.32.0-RC",
+        "@rnv/engine-rn-tvos": "~0.32.0-RC",
         "@rnv/engine-rn-electron": "~0.32.0-RC",
         "@rnv/engine-rn-next": "~0.32.0-RC",
         "@rnv/engine-rn-web": "~0.32.0-RC",

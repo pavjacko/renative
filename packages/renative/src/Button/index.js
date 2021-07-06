@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { getScaledValue } from '../Api';
 import Icon from '../Icon';
 
@@ -27,13 +27,15 @@ const Button = ({
     textStyle,
     testID,
     onPress,
-    activeOpacity
+    activeOpacity,
+    ...touchableProps
 }) => (
     <TouchableOpacity
         style={[styles.button, style]}
         onPress={onPress}
         activeOpacity={activeOpacity ?? 0.2}
         testID={testID}
+        {...touchableProps}
     >
         {iconName ? (
             <Icon

@@ -1,127 +1,129 @@
 {
-    "defaults": {
-        "supportedPlatforms": [
-            "android",
-            "androidtv",
-            "firetv",
-            "androidwear",
-            "ios",
-            "web",
-            "macos",
-            "tvos",
-            "tizen",
-            "tizenmobile",
-            "webos",
-            "windows",
-            "tizenwatch",
-            "kaios",
-            "firefoxos",
-            "firefoxtv",
-            "chromecast",
-            "webtv"
+  "defaults": {
+    "supportedPlatforms": [
+      "android",
+      "androidtv",
+      "firetv",
+      "androidwear",
+      "ios",
+      "web",
+      "macos",
+      "tvos",
+      "tizen",
+      "tizenmobile",
+      "webos",
+      "windows",
+      "tizenwatch",
+      "kaios",
+      "firefoxos",
+      "firefoxtv",
+      "chromecast",
+      "webtv"
+    ]
+  },
+  "engines": {
+    "@rnv/engine-rn": "source:rnv",
+    "@rnv/engine-rn-web": "source:rnv",
+    "@rnv/engine-rn-next": "source:rnv",
+    "@rnv/engine-rn-electron": "source:rnv",
+    "@rnv/engine-rn-tvos": "source:rnv"
+  },
+  "plugins": {
+    "react-native-web-image-loader": "source:rnv",
+    "react-native-gesture-handler": "source:rnv",
+    "react-native-reanimated": "source:rnv",
+    "react-native-vector-icons": "source:rnv",
+    "@reach/router": "1.3.4",
+    "hash-source": "1.0.4",
+    "@react-navigation": "source:rnv",
+    "@react-navigation/core": "5.2.1",
+    "@react-navigation/drawer": "5.1.1",
+    "@react-navigation/bottom-tabs": "5.1.1",
+    "@react-navigation/material-bottom-tabs": "5.1.1",
+    "@react-navigation/native": "5.0.9",
+    "@react-navigation/stack": "5.1.1",
+    "@react-navigation/routers": "5.1.0",
+    "@react-navigation/material-top-tabs": "5.1.1",
+    "@react-navigation/web": "1.0.0-alpha.9",
+    "@react-native-community/masked-view": "0.1.6",
+    "@react-native-community/viewpager": "source:rnv",
+    "react-native-safe-area-context": "source:rnv",
+    "react-native-safe-area-view": "source:rnv",
+    "react-native-screens": "source:rnv",
+    "react-native-tab-view": "source:rnv",
+    "react-native-google-cast": {
+      "props": {
+        "applicationID": "CC1AD845"
+      }
+    },
+    "@noriginmedia/react-spatial-navigation": "source:rnv",
+    "renative": "source:rnv",
+    "detox": "source:rnv"
+  },
+  "platforms": {
+    "android": {
+      "gradle.properties": {
+        "android.useDeprecatedNdk": true
+      },
+      "AndroidManifest": {
+        "children": [
+          {
+            "tag": "application",
+            "android:name": ".MainApplication",
+            "android:usesCleartextTraffic": true,
+            "tools:targetApi": 28
+          }
         ]
+      }
     },
-    "engines": {
-        "@rnv/engine-rn": "source:rnv",
-        "@rnv/engine-rn-web": "source:rnv",
-        "@rnv/engine-rn-next": "source:rnv",
-        "@rnv/engine-rn-electron": "source:rnv"
+    "androidtv": {
+      "gradle.properties": {
+        "android.useDeprecatedNdk": true
+      },
+      "AndroidManifest": {
+        "children": [
+          {
+            "tag": "application",
+            "android:name": ".MainApplication",
+            "android:usesCleartextTraffic": true,
+            "tools:targetApi": 28
+          }
+        ]
+      }
     },
-    "plugins": {
-        "react-native-web-image-loader": "source:rnv",
-        "react-native-gesture-handler": "source:rnv",
-        "react-native-reanimated": "source:rnv",
-        "react-native-vector-icons": "source:rnv",
-        "@reach/router": "1.3.4",
-        "hash-source": "1.0.4",
-        "@react-navigation": "source:rnv",
-        "@react-navigation/core": "5.2.1",
-        "@react-navigation/drawer": "5.1.1",
-        "@react-navigation/bottom-tabs": "5.1.1",
-        "@react-navigation/material-bottom-tabs": "5.1.1",
-        "@react-navigation/native": "5.0.9",
-        "@react-navigation/stack": "5.1.1",
-        "@react-navigation/routers": "5.1.0",
-        "@react-navigation/material-top-tabs": "5.1.1",
-        "@react-navigation/web": "1.0.0-alpha.9",
-        "@react-native-community/masked-view": "0.1.6",
-        "@react-native-community/viewpager": "source:rnv",
-        "react-native-safe-area-context": "source:rnv",
-        "react-native-safe-area-view": "source:rnv",
-        "react-native-screens": "source:rnv",
-        "react-native-tab-view": "source:rnv",
-        "react-native-google-cast": {
-            "props": {
-                "applicationID": "CC1AD845"
-            }
-        },
-        "@noriginmedia/react-spatial-navigation": "source:rnv",
-        "renative": "source:rnv",
-        "detox": "source:rnv"
+    "firetv": {
+      "gradle.properties": {
+        "android.useDeprecatedNdk": true
+      },
+      "AndroidManifest": {
+        "children": [
+          {
+            "tag": "application",
+            "android:name": ".MainApplication",
+            "android:usesCleartextTraffic": true,
+            "tools:targetApi": 28
+          }
+        ]
+      }
     },
-    "platforms": {
-        "android": {
-            "gradle.properties": {
-                "android.useDeprecatedNdk": true
-            },
-            "AndroidManifest": {
-                "children": [
-                    {
-                        "tag": "application",
-                        "android:name": ".MainApplication",
-                        "android:usesCleartextTraffic": true,
-                        "tools:targetApi": 28
-                    }
-                ]
-            }
-        },
-        "androidtv": {
-            "gradle.properties": {
-                "android.useDeprecatedNdk": true
-            },
-            "AndroidManifest": {
-                "children": [
-                    {
-                        "tag": "application",
-                        "android:name": ".MainApplication",
-                        "android:usesCleartextTraffic": true,
-                        "tools:targetApi": 28
-                    }
-                ]
-            }
-        },
-        "firetv": {
-            "gradle.properties": {
-                "android.useDeprecatedNdk": true
-            },
-            "AndroidManifest": {
-                "children": [
-                    {
-                        "tag": "application",
-                        "android:name": ".MainApplication",
-                        "android:usesCleartextTraffic": true,
-                        "tools:targetApi": 28
-                    }
-                ]
-            }
-        },
-        "platforms": {
-            "web": {
-                "engine": "engine-rn-next"
-            }
-        }
+    "web": {
+        "engine": "engine-rn-next"
     },
-    "permissions": {
-        "ios": {},
-        "android": {
-            "INTERNET": {
-                "key": "android.permission.INTERNET",
-                "security": "normal"
-            },
-            "SYSTEM_ALERT_WINDOW": {
-                "key": "android.permission.SYSTEM_ALERT_WINDOW",
-                "security": "signature"
-            }
-        }
+    "tvos": {
+        "engine": "engine-rn-tvos"
     }
+  },
+  "permissions": {
+    "ios": {},
+    "android": {
+      "INTERNET": {
+        "key": "android.permission.INTERNET",
+        "security": "normal"
+      },
+      "SYSTEM_ALERT_WINDOW": {
+        "key": "android.permission.SYSTEM_ALERT_WINDOW",
+        "security": "signature"
+      }
+    }
+  }
 }

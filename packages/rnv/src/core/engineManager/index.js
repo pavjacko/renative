@@ -1,6 +1,6 @@
 /* eslint-disable import/no-dynamic-require, global-require */
 import path from 'path';
-import { IS_LINKED, RNV_HOME_DIR } from '../constants';
+import { IS_LINKED, RNV_HOME_DIR, TVOS } from '../constants';
 import { logDebug, logTask, chalk, logInfo, logWarning } from '../systemManager/logger';
 import { getConfigProp } from '../common';
 import { doResolve } from '../systemManager/resolve';
@@ -294,6 +294,7 @@ Maybe you forgot to define platforms.${platform}.engine in your renative.json?`)
 
 export const generateEnvVars = (c, moduleConfig, nextConfig) => {
     const isMonorepo = getConfigProp(c, c.platform, 'isMonorepo');
+
     return ({
         RNV_EXTENSIONS: getPlatformExtensions(c),
         RNV_MODULE_PATHS: moduleConfig?.modulePaths || [],
@@ -301,7 +302,8 @@ export const generateEnvVars = (c, moduleConfig, nextConfig) => {
         RNV_NEXT_TRANSPILE_MODULES: nextConfig,
         RNV_PROJECT_ROOT: c.paths.project.dir,
         RNV_IS_MONOREPO: isMonorepo,
-        RNV_MONO_ROOT: (c.runtime.isWrapper || isMonorepo) ? path.join(c.paths.project.dir, '../..') : c.paths.project.dir
+        RNV_MONO_ROOT: (c.runtime.isWrapper || isMonorepo) ? path.join(c.paths.project.dir, '../..') : c.paths.project.dir,
+        RNV_IS_TVOS: c.platform === TVOS
     });
 };
 

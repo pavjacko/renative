@@ -61,7 +61,7 @@
         "history": "^4.9.0",
         "react": "16.13.1",
         "react-dom": "16.13.1",
-        "react-native": "0.61.2"
+        "react-native": "0.63.4"
     },
     "devDependencies": {
         "babel-eslint": "8.2.6",

@@ -1,6 +1,6 @@
 {
     "name": "@rnv/engine-rn-tvos",
-    "version": "0.32.0-alpha.1",
+    "version": "0.32.0-alpha.43",
     "description": "ReNative Engine to build react-native tvos platform.",
     "keywords": [
         "react-native"

@@ -1,117 +1,118 @@
 {
-    "defaults": {
-        "supportedPlatforms": [
-            "android",
-            "androidtv",
-            "firetv",
-            "androidwear",
-            "ios",
-            "web",
-            "macos",
-            "tvos",
-            "tizen",
-            "tizenmobile",
-            "webos",
-            "windows",
-            "tizenwatch",
-            "kaios",
-            "firefoxos",
-            "firefoxtv",
-            "chromecast",
-            "webtv"
-        ]
-    },
-    "engines": {
-        "@rnv/engine-rn": "source:rnv",
-        "@rnv/engine-rn-web": "source:rnv",
-        "@rnv/engine-rn-next": "source:rnv",
-        "@rnv/engine-rn-electron": "source:rnv"
-    },
-    "plugins": {
-        "renative": "source:rnv",
-        "react": "source:rnv",
-        "react-art": "source:rnv",
-        "react-dom": "source:rnv",
-        "react-native": "source:rnv",
-        "react-native-web": "source:rnv",
-        "react-native-web-image-loader": "source:rnv",
-        "react-native-gesture-handler": "source:rnv",
-        "react-native-reanimated": "source:rnv",
-        "react-native-vector-icons": "source:rnv"
-    },
-    "permissions": {
-        "ios": {},
-        "android": {
-            "INTERNET": {
-                "key": "android.permission.INTERNET",
-                "security": "normal"
-            },
-            "SYSTEM_ALERT_WINDOW": {
-                "key": "android.permission.SYSTEM_ALERT_WINDOW",
-                "security": "signature"
-            }
-        }
-    },
-    "platforms": {
-        "android": {
-            "gradle.properties": {
-                "android.useDeprecatedNdk": true
-            },
-            "AndroidManifest": {
-                "children": [
-                    {
-                        "tag": "application",
-                        "android:name": ".MainApplication",
-                        "android:usesCleartextTraffic": true,
-                        "tools:targetApi": 28
-                    }
-                ]
-            }
-        },
-        "androidtv": {
-            "gradle.properties": {
-                "android.useDeprecatedNdk": true
-            },
-            "AndroidManifest": {
-                "children": [
-                    {
-                        "tag": "application",
-                        "android:name": ".MainApplication",
-                        "android:usesCleartextTraffic": true,
-                        "tools:targetApi": 28
-                    }
-                ]
-            }
-        },
-        "firetv": {
-            "gradle.properties": {
-                "android.useDeprecatedNdk": true
-            },
-            "AndroidManifest": {
-                "children": [
-                    {
-                        "tag": "application",
-                        "android:name": ".MainApplication",
-                        "android:usesCleartextTraffic": true,
-                        "tools:targetApi": 28
-                    }
-                ]
-            }
-        },
-        "androidwear": {
-            "gradle.properties": {
-                "android.useDeprecatedNdk": true
-            },
-            "AndroidManifest": {
-                "children": [
-                    {
-                        "tag": "application",
-                        "android:name": ".MainApplication",
-                        "android:usesCleartextTraffic": true,
-                        "tools:targetApi": 28
-                    }
-                ]
-            }
-        }
+  "defaults": {
+    "supportedPlatforms": [
+      "android",
+      "androidtv",
+      "firetv",
+      "androidwear",
+      "ios",
+      "web",
+      "macos",
+      "tvos",
+      "tizen",
+      "tizenmobile",
+      "webos",
+      "windows",
+      "tizenwatch",
+      "kaios",
+      "firefoxos",
+      "firefoxtv",
+      "chromecast",
+      "webtv"
+    ]
+  },
+  "engines": {
+    "@rnv/engine-rn": "source:rnv",
+    "@rnv/engine-rn-web": "source:rnv",
+    "@rnv/engine-rn-next": "source:rnv",
+    "@rnv/engine-rn-electron": "source:rnv",
+    "@rnv/engine-rn-tvos": "source:rnv"
+  },
+  "plugins": {
+    "renative": "source:rnv",
+    "react": "source:rnv",
+    "react-art": "source:rnv",
+    "react-dom": "source:rnv",
+    "react-native": "source:rnv",
+    "react-native-web": "source:rnv",
+    "react-native-web-image-loader": "source:rnv",
+    "react-native-gesture-handler": "source:rnv",
+    "react-native-reanimated": "source:rnv",
+    "react-native-vector-icons": "source:rnv"
+  },
+  "permissions": {
+    "ios": {},
+    "android": {
+      "INTERNET": {
+        "key": "android.permission.INTERNET",
+        "security": "normal"
+      },
+      "SYSTEM_ALERT_WINDOW": {
+        "key": "android.permission.SYSTEM_ALERT_WINDOW",
+        "security": "signature"
+      }
     }
+  },
+  "platforms": {
+    "android": {
+      "gradle.properties": {
+        "android.useDeprecatedNdk": true
+      },
+      "AndroidManifest": {
+        "children": [
+          {
+            "tag": "application",
+            "android:name": ".MainApplication",
+            "android:usesCleartextTraffic": true,
+            "tools:targetApi": 28
+          }
+        ]
+      }
+    },
+    "androidtv": {
+      "gradle.properties": {
+        "android.useDeprecatedNdk": true
+      },
+      "AndroidManifest": {
+        "children": [
+          {
+            "tag": "application",
+            "android:name": ".MainApplication",
+            "android:usesCleartextTraffic": true,
+            "tools:targetApi": 28
+          }
+        ]
+      }
+    },
+    "firetv": {
+      "gradle.properties": {
+        "android.useDeprecatedNdk": true
+      },
+      "AndroidManifest": {
+        "children": [
+          {
+            "tag": "application",
+            "android:name": ".MainApplication",
+            "android:usesCleartextTraffic": true,
+            "tools:targetApi": 28
+          }
+        ]
+      }
+    },
+    "androidwear": {
+      "gradle.properties": {
+        "android.useDeprecatedNdk": true
+      },
+      "AndroidManifest": {
+        "children": [
+          {
+            "tag": "application",
+            "android:name": ".MainApplication",
+            "android:usesCleartextTraffic": true,
+            "tools:targetApi": 28
+          }
+        ]
+      }
+    }
+  }
 }

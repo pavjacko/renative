@@ -1,7 +1,7 @@
 {
     "pluginTemplates": {
         "react-native": {
-            "version": "0.61.2",
+            "version": "0.63.4",
             "android": {
                 "implementation": "implementation ('com.facebook.react:react-native:+') {\n exclude group: 'com.android.support' \n exclude group: 'javax.inject' \n exclude group: 'com.squareup.okhttp3', module: 'okhttp' \n exclude group: 'com.squareup.okio' \n }",
                 "path": "react-native"
@@ -18,6 +18,9 @@
                 "implementation": "implementation ('com.facebook.react:react-native:+') {\n exclude group: 'com.android.support' \n exclude group: 'javax.inject' \n exclude group: 'com.squareup.okhttp3', module: 'okhttp' \n exclude group: 'com.squareup.okio' \n }",
                 "path": "react-native"
             }
+        },
+        "react-native-tvos": {
+            "version": "npm:react-native-tvos@latest"
         },
         "renative": {
             "version": "0.32.0-alpha.43",

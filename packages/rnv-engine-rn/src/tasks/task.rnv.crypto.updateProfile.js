@@ -4,7 +4,7 @@ import { updateProfile } from '../sdks/sdk-xcode/fastlane';
 
 const { executeTask, shouldSkipTask } = TaskManager;
 const { logTask } = Logger;
-const { TASK_CRYPTO_UPDATE_PROFILE, TASK_PROJECT_CONFIGURE, IOS, TVOS, PARAMS } = Constants;
+const { TASK_CRYPTO_UPDATE_PROFILE, TASK_PROJECT_CONFIGURE, IOS, PARAMS } = Constants;
 
 
 export const taskRnvCryptoUpdateProfile = async (c, parentTask, originTask) => {
@@ -22,6 +22,6 @@ export default {
     fn: taskRnvCryptoUpdateProfile,
     task: TASK_CRYPTO_UPDATE_PROFILE,
     params: PARAMS.withBase(),
-    platforms: [IOS, TVOS],
+    platforms: [IOS],
     skipPlatforms: true,
 };

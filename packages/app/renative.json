@@ -18,6 +18,7 @@
     },
     "engines": {
         "@rnv/engine-rn": "source:rnv",
+        "@rnv/engine-rn-tvos": "source:rnv",
         "@rnv/engine-rn-web": "source:rnv",
         "@rnv/engine-rn-next": "source:rnv",
         "@rnv/engine-rn-electron": "source:rnv",
@@ -102,10 +103,13 @@
         "web": {
             "engine": "engine-rn-next"
         },
+        "tvos": {
+            "engine": "engine-rn-tvos"
+        },
         "android": {
-          "mainActivity": {
-            "onCreate": "super.onCreate(null)"
-          }
+            "mainActivity": {
+                "onCreate": "super.onCreate(null)"
+            }
         }
     },
     "currentTemplate": "renative-template-hello-world",

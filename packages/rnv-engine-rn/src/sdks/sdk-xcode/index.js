@@ -1,19 +1,18 @@
-import path from 'path';
 import child_process from 'child_process';
-import inquirer from 'inquirer';
 import crypto from 'crypto';
-import { Exec, Logger, Constants, Common, FileUtils, EngineManager, Resolver, PlatformManager, ProjectManager, SDKManager } from 'rnv';
-import { registerDevice } from './fastlane';
+import inquirer from 'inquirer';
+import path from 'path';
+import { Common, Constants, EngineManager, Exec, FileUtils, Logger, PlatformManager, ProjectManager, Resolver, SDKManager } from 'rnv';
 import { getAppFolderName } from './common';
+import { registerDevice } from './fastlane';
 import {
-    parseExportOptionsPlist,
-    parseInfoPlist,
-    parseEntitlementsPlist
+    parseEntitlementsPlist, parseExportOptionsPlist,
+    parseInfoPlist
 } from './plistParser';
-import { parseXcscheme } from './xcschemeParser';
 import { parsePodFile } from './podfileParser';
-import { parseXcodeProject } from './xcodeParser';
 import { parseAppDelegate } from './swiftParser';
+import { parseXcodeProject } from './xcodeParser';
+import { parseXcscheme } from './xcschemeParser';
 
 const { getAppleDevices } = SDKManager.Apple;
 
@@ -40,7 +39,7 @@ const {
     parseFonts
 } = ProjectManager;
 
-const { IOS, TVOS, MACOS } = Constants;
+const { IOS, MACOS } = Constants;
 const {
     chalk,
     logInfo,
@@ -516,14 +515,6 @@ export const buildXcodeProject = async (c) => {
 
     let destinationPlatform = '';
     switch (c.platform) {
-        case TVOS: {
-            if (c.program.device) {
-                destinationPlatform = 'tvOS';
-            } else {
-                destinationPlatform = 'tvOS Simulator';
-            }
-            break;
-        }
         case IOS: {
             if (c.program.device) {
                 destinationPlatform = 'iOS';
@@ -605,7 +596,6 @@ const archiveXcodeProject = (c) => {
     let sdk = getConfigProp(c, platform, 'sdk');
     if (!sdk) {
         if (platform === IOS) sdk = 'iphoneos';
-        if (platform === TVOS) sdk = 'appletvos';
         if (platform === MACOS) sdk = 'macosx';
     }
     const sdkArr = [sdk];
@@ -882,7 +872,7 @@ const configureXcodeProject = async (c) => {
         );
     }
 
-    await copyAssetsFolder(c, platform, platform === TVOS ? 'RNVAppTVOS' : 'RNVApp');
+    await copyAssetsFolder(c, platform, 'RNVApp');
     await copyAppleAssets(c, platform, appFolderName);
     await parseAppDelegate(
         c,

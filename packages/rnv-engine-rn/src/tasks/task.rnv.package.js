@@ -5,7 +5,6 @@ const { logErrorPlatform } = PlatformManager;
 const { logTask } = Logger;
 const {
     IOS,
-    TVOS,
     ANDROID,
     ANDROID_TV,
     FIRE_TV,
@@ -28,7 +27,6 @@ export const taskRnvPackage = async (c, parentTask, originTask) => {
 
     switch (platform) {
         case IOS:
-        case TVOS:
             return packageBundleForXcode(c);
         case ANDROID:
         case ANDROID_TV:
@@ -48,7 +46,6 @@ export default {
     params: PARAMS.withBase(PARAMS.withConfigure()),
     platforms: [
         IOS,
-        TVOS,
         ANDROID,
         ANDROID_TV,
         FIRE_TV,

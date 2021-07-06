@@ -97,6 +97,7 @@ export const updateVersions = async (c) => {
         {
             engineTemplates: {
                 '@rnv/engine-rn': v,
+                '@rnv/engine-rn-tvos': v,
                 '@rnv/engine-rn-web': v,
                 '@rnv/engine-rn-next': v,
                 '@rnv/engine-rn-electron': v,

@@ -1,3 +1,5 @@
+const { createEngineAlias } = require('@rnv/engine-rn-tvos');
+
 module.exports = {
     retainLines: true,
     presets: ['module:metro-react-native-babel-preset'],
@@ -5,7 +7,8 @@ module.exports = {
         [
             require.resolve('babel-plugin-module-resolver'),
             {
-                root: ['..']
+                root: ['..'],
+                alias: { ...createEngineAlias() }
             },
         ],
     ],

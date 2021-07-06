@@ -30,7 +30,7 @@ target 'RNVApp' do
   pod 'React-jsi', :path => '{{PATH_REACT_NATIVE}}/ReactCommon/jsi'
   pod 'React-jsiexecutor', :path => '{{PATH_REACT_NATIVE}}/ReactCommon/jsiexecutor'
   pod 'React-jsinspector', :path => '{{PATH_REACT_NATIVE}}/ReactCommon/jsinspector'
-  pod 'ReactCommon/jscallinvoker', :path => "{{PATH_REACT_NATIVE}}/ReactCommon"
+  pod 'React-callinvoker', :path => "{{PATH_REACT_NATIVE}}/ReactCommon/callinvoker"
   pod 'ReactCommon/turbomodule/core', :path => "{{PATH_REACT_NATIVE}}/ReactCommon"
   pod 'Yoga', :path => '{{PATH_REACT_NATIVE}}/ReactCommon/yoga'
 
