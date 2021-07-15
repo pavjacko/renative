@@ -1,0 +1,27 @@
+{
+  "overrides": {
+    "src/actions/serve.js": {
+      "'./build',": "process.env.LNG_BUILD_FOLDER,"
+    },
+    "src/actions/dist.js": {
+      "distDir = path.join(baseDistDir, type)": "distDir = path.join(baseDistDir, 'project')",
+      "if (!fs.existsSync(distDir)) {": "if (true) { // need this to always run, since this dir is created by rnv"
+    },
+    "src/helpers/build.js": {
+      "path.join(process.cwd(), 'src/index.js'),": "path.join(process.cwd(), process.env.LNG_ENTRY_FILE),"
+    },
+    "src/configs/rollup.es6.config.js": {
+      "resolve({ mainFields: ['module', 'main', 'browser'] }),": "resolve({ mainFields: ['module', 'main', 'browser'], extensions: process.env.RNV_EXTENSIONS.split(',').map(extension => `.${extension}`) }),"
+    },
+    "src/configs/esbuild.es6.config.js": {
+      "/src/index.js`],": "/${process.env.LNG_ENTRY_FILE}`],"
+    },
+    "src/configs/rollup.es5.config.js": {
+      "resolve({ mainFields: ['module', 'main', 'browser'] }),": "resolve({ mainFields: ['module', 'main', 'browser'], extensions: process.env.RNV_EXTENSIONS.split(',').map(extension => `.${extension}`) }),"
+    },
+    "src/configs/esbuild.es5.config.js": {
+      "/src/index.js`],": "/${process.env.LNG_ENTRY_FILE}`],"
+    }
+  }
+}
+

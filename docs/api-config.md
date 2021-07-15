@@ -1680,6 +1680,7 @@ List of engines available in this project
     "@rnv/engine-rn": "source:rnv",
     "@rnv/engine-rn-web": "source:rnv",
     "@rnv/engine-rn-next": "source:rnv",
+    "@rnv/engine-lightning": "source:rnv",
     "@rnv/engine-rn-electron": "source:rnv"
   }
 }

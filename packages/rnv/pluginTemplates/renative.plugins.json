@@ -20,7 +20,7 @@
             }
         },
         "renative": {
-            "version": "0.32.0-alpha.43",
+            "version": "0.32.0-feat-lightning-1",
             "webpack": {
                 "modulePaths": [
                     "node_modules/renative"
@@ -3032,7 +3032,10 @@
             }
         },
         "@lightningjs/sdk": {
-            "version": "3.0.0"
+            "version": "4.3.3"
+        },
+        "@lightningjs/cli": {
+            "version": "2.5.1"
         }
     }
 }

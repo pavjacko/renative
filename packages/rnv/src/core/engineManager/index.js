@@ -1,12 +1,12 @@
 /* eslint-disable import/no-dynamic-require, global-require */
 import path from 'path';
-import { IS_LINKED, RNV_HOME_DIR } from '../constants';
-import { logDebug, logTask, chalk, logInfo, logWarning } from '../systemManager/logger';
 import { getConfigProp } from '../common';
+import { IS_LINKED, RNV_HOME_DIR } from '../constants';
+import { fsExistsSync, writeFileSync } from '../systemManager/fileutils';
+import { chalk, logDebug, logInfo, logTask, logWarning } from '../systemManager/logger';
+import { checkAndCreateProjectPackage, installPackageDependencies } from '../systemManager/npmUtils';
 import { doResolve } from '../systemManager/resolve';
 import { getScopedVersion } from '../systemManager/utils';
-import { fsExistsSync, writeFileSync } from '../systemManager/fileutils';
-import { installPackageDependencies, checkAndCreateProjectPackage } from '../systemManager/npmUtils';
 
 const ENGINE_CORE = 'engine-core';
 
@@ -185,7 +185,8 @@ ${enginesToInstall.map(v => `> ${v.key}@${v.version}`).join('\n')}
             '@rnv/engine-rn': 'source:rnv',
             '@rnv/engine-rn-web': 'source:rnv',
             '@rnv/engine-rn-next': 'source:rnv',
-            '@rnv/engine-rn-electron': 'source:rnv'
+            '@rnv/engine-rn-electron': 'source:rnv',
+            '@rnv/engine-lightning': 'source:rnv'
         };
         // TODO: use parseRenativeConfigs instead
         c.buildConfig.engines = c.files.project.config.engines;
@@ -301,7 +302,8 @@ export const generateEnvVars = (c, moduleConfig, nextConfig) => {
         RNV_NEXT_TRANSPILE_MODULES: nextConfig,
         RNV_PROJECT_ROOT: c.paths.project.dir,
         RNV_IS_MONOREPO: isMonorepo,
-        RNV_MONO_ROOT: (c.runtime.isWrapper || isMonorepo) ? path.join(c.paths.project.dir, '../..') : c.paths.project.dir
+        RNV_MONO_ROOT: (c.runtime.isWrapper || isMonorepo) ? path.join(c.paths.project.dir, '../..') : c.paths.project.dir,
+        RNV_ENGINE: c.runtime.engine.config.id
     });
 };
 

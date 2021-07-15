@@ -1,9 +1,9 @@
-import { EngineManager, Config } from 'rnv';
+import { Config, EngineManager } from 'rnv';
 import CNF from '../renative.engine.json';
-import taskRnvRun from './tasks/task.rnv.run';
 // import taskRnvPackage from './tasks/task.rnv.package';
-// import taskRnvBuild from './tasks/task.rnv.build';
+import taskRnvBuild from './tasks/task.rnv.build';
 import taskRnvConfigure from './tasks/task.rnv.configure';
+import taskRnvRun from './tasks/task.rnv.run';
 // import taskRnvStart from './tasks/task.rnv.start';
 // import taskRnvExport from './tasks/task.rnv.export';
 // import taskRnvDeploy from './tasks/task.rnv.deploy';
@@ -17,7 +17,7 @@ export default {
     tasks: generateEngineTasks([
         taskRnvRun,
         // taskRnvPackage,
-        // taskRnvBuild,
+        taskRnvBuild,
         taskRnvConfigure,
         // taskRnvStart,
         // taskRnvExport,
@@ -33,7 +33,7 @@ export default {
             defaultPort: 8087,
             isWebHosted: true,
             extenstions: generateEngineExtensions([
-                'tizen.tv', 'web.tv', 'tv', 'tizen', 'tv.web', 'web'
+                'lng', 'tizen.tv', 'web.tv', 'tv', 'tizen', 'tv.web', 'web'
             ], CNF)
 
         },
@@ -41,7 +41,7 @@ export default {
             defaultPort: 8088,
             isWebHosted: true,
             extenstions: generateEngineExtensions([
-                'webos.tv', 'web.tv', 'tv', 'webos', 'tv.web', 'web'
+                'lng', 'webos.tv', 'web.tv', 'tv', 'webos', 'tv.web', 'web'
             ], CNF)
 
         }

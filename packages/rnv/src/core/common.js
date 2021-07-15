@@ -1,21 +1,17 @@
-import killPort from 'kill-port';
-import path from 'path';
+import colorString from 'color-string';
 import detectPort from 'detect-port';
 import ip from 'ip';
+import killPort from 'kill-port';
 import lGet from 'lodash.get';
-import colorString from 'color-string';
-import { fsExistsSync, writeCleanFile } from './systemManager/fileutils';
-import {
-    chalk,
-    logError,
-    logTask,
-    logWarning,
-    logDebug,
-    logSuccess
-} from './systemManager/logger';
-import { getValidLocalhost } from './systemManager/utils';
+import path from 'path';
 import { inquirerPrompt } from '../cli/prompt';
 import { CLI_PROPS } from './constants';
+import { fsExistsSync, writeCleanFile } from './systemManager/fileutils';
+import {
+    chalk, logDebug, logError, logSuccess, logTask,
+    logWarning
+} from './systemManager/logger';
+import { getValidLocalhost } from './systemManager/utils';
 
 export const getTimestampPathsConfig = (c, platform) => {
     let timestampBuildFiles;
@@ -122,12 +118,12 @@ export const confirmActiveBundler = async (c) => {
     return true;
 };
 
-export const getPlatformBuildDir = (c) => {
+export const getPlatformBuildDir = (c, isRelativePath) => {
     if (!c.runtime.engine) {
         logError('getPlatformBuildDir not available without specific engine');
         return null;
     }
-    return getAppFolder(c);
+    return getAppFolder(c, isRelativePath);
 };
 
 export const getPlatformOutputDir = (c) => {

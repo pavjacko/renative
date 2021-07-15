@@ -1,6 +1,6 @@
 {
     "name": "@rnv/engine-rn-electron",
-    "version": "0.32.0-alpha.43",
+    "version": "0.32.0-feat-lightning-1",
     "description": "ReNative Engine to build electron based platforms with react native support.",
     "keywords": [
         "electron",

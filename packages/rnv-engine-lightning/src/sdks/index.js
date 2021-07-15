@@ -1,5 +1,5 @@
-import * as SDKTizen from './sdk-tizen';
+import * as SDKLightning from './sdk-lightning';
 
 export {
-    SDKTizen
+    SDKLightning
 };

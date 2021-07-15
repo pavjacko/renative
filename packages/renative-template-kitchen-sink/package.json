@@ -1,6 +1,6 @@
 {
     "name": "renative-template-kitchen-sink",
-    "version": "0.32.0-alpha.43",
+    "version": "0.32.0-feat-lightning-1",
     "description": "🚀🚀🚀 Build universal cross-platform apps with React Native. Includes latest `iOS`, `tvOS`, `Android`, `Android TV`, `FireTV`, `Android Wear`, `Web`, `Tizen TV`, `Tizen Watch`, `LG webOS`, `macOS/OSX`, `Windows`, `KaiOS`, `FirefoxOS` and `Firefox TV` platforms",
     "keywords": [
         "android tv",

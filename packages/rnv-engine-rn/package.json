@@ -1,6 +1,6 @@
 {
     "name": "@rnv/engine-rn",
-    "version": "0.32.0-alpha.43",
+    "version": "0.32.0-feat-lightning-1",
     "description": "ReNative Engine to build react-native based platforms.",
     "keywords": [
         "react-native"

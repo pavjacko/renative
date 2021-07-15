@@ -1,6 +1,6 @@
 {
     "name": "renative-app",
-    "version": "0.32.0-alpha.43",
+    "version": "0.32.0-feat-lightning-1",
     "description": "🚀🚀🚀 Build universal cross-platform apps with React Native. Includes latest `iOS`, `tvOS`, `Android`, `Android TV`, `FireTV`, `Android Wear`, `Web`, `Tizen TV`, `Tizen Watch`, `Tizen Mobile`, `LG webOS`, `macOS/OSX`, `Windows`, `KaiOS`, `FirefoxOS` and `Firefox TV` platforms",
     "homepage": "https://github.com/pavjacko/renative#readme",
     "bugs": {
@@ -35,7 +35,8 @@
         "start": "concurrently \"rnv start -p ios\" \"rnv start -p android\" \"rnv start -p androidtv\" \"rnv start -p tvos\" \"rnv start -p macos\" \"rnv start -p web\" \"rnv start -p tizen\" \"rnv start -p webos\""
     },
     "dependencies": {
-        "@lightningjs/sdk": "3.0.0",
+        "@lightningjs/cli": "2.5.1",
+        "@lightningjs/sdk": "4.3.3",
         "@noriginmedia/react-spatial-navigation": "2.12.1",
         "@ovaeasy/react-native-vector-icons": "7.0.4",
         "@reach/router": "1.3.4",
@@ -149,7 +150,8 @@
     },
     "workspaces": {
         "nohoist": [
-            "@lightningjs/sdk"
+            "@lightningjs/sdk",
+            "@lightningjs/cli"
         ]
     }
 }

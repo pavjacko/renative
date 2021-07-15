@@ -1,27 +1,17 @@
-import path from 'path';
 import inquirer from 'inquirer';
 import net from 'net';
-
-import { execCLI } from '../../systemManager/exec';
+import path from 'path';
+import { getConfigProp, getPlatformProjectDir } from '../../common';
 import {
-    RENATIVE_CONFIG_NAME,
-    CLI_TIZEN_EMULATOR,
-    CLI_TIZEN,
-    CLI_SDB_TIZEN,
+    CLI_SDB_TIZEN, CLI_TIZEN, CLI_TIZEN_EMULATOR, RENATIVE_CONFIG_NAME
 } from '../../constants';
-import { getPlatformProjectDir, getConfigProp } from '../../common';
-import {
-    chalk,
-    logTask,
-    logError,
-    logWarning,
-    logDebug,
-    logToSummary,
-    logInfo
-} from '../../systemManager/logger';
-import { waitForEmulator } from './common';
+import { execCLI } from '../../systemManager/exec';
 import { fsRenameSync } from '../../systemManager/fileutils';
+import {
+    chalk, logDebug, logError, logInfo, logTask, logToSummary, logWarning
+} from '../../systemManager/logger';
 import { buildCoreWebpackProject } from '../webpackUtils';
+import { waitForEmulator } from './common';
 
 
 const xml2js = require('xml2js');
@@ -230,13 +220,13 @@ const _composeDevicesString = devices => devices.map(device => ({
 
 export const runTizenSimOrDevice = async (c) => {
     const { hosted } = c.program;
-    const { target } = c.runtime;
+    const { target, engine } = c.runtime;
     const { platform } = c;
 
     const platformConfig = c.buildConfig.platforms[platform];
     const bundleAssets = getConfigProp(c, platform, 'bundleAssets');
     const isHosted = hosted ?? !bundleAssets;
-
+    const isLightningEngine = engine.config.id === 'engine-lightning';
     if (!bundleAssets && !hosted) {
         // console.log('RUN WEINRE');
     }
@@ -313,13 +303,15 @@ Please create one and then edit the default target from ${c.paths.workspace.dir}
     const continueLaunching = async () => {
         let hasDevice = false;
 
-        !isHosted && (await buildCoreWebpackProject(c));
-        await execCLI(c, CLI_TIZEN, `build-web -- ${tDir} -out ${tBuild}`);
-        await execCLI(
-            c,
-            CLI_TIZEN,
-            `package -- ${tBuild} -s ${certProfile} -t wgt -o ${tOut}`
-        );
+        if (!isLightningEngine) { // lightning engine handles the build and packaging
+            !isHosted && (await buildCoreWebpackProject(c));
+            await execCLI(c, CLI_TIZEN, `build-web -- ${tDir} -out ${tBuild}`);
+            await execCLI(
+                c,
+                CLI_TIZEN,
+                `package -- ${tBuild} -s ${certProfile} -t wgt -o ${tOut}`
+            );
+        }
 
         try {
             const packageID = platform === 'tizenwatch' || platform === 'tizenmobile'

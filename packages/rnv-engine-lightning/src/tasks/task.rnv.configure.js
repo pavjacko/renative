@@ -1,14 +1,15 @@
-import { TaskManager, Constants, Logger, PlatformManager } from 'rnv';
-import { SDKTizen } from '../sdks';
+import { Constants, Logger, PlatformManager, TaskManager } from 'rnv';
+import { SDKLightning } from '../sdks';
 
 const { logErrorPlatform } = PlatformManager;
 const { logTask } = Logger;
 const {
     TIZEN,
+    WEBOS,
     TASK_PLATFORM_CONFIGURE, TASK_CONFIGURE,
     PARAMS
 } = Constants;
-const { configureTizenProject } = SDKTizen;
+const { configureLightningProject } = SDKLightning;
 const { executeTask } = TaskManager;
 
 export const taskRnvConfigure = async (c, parentTask, originTask) => {
@@ -23,7 +24,8 @@ export const taskRnvConfigure = async (c, parentTask, originTask) => {
 
     switch (c.platform) {
         case TIZEN:
-            return configureTizenProject(c);
+        case WEBOS:
+            return configureLightningProject(c);
         default:
             return logErrorPlatform(c);
     }
@@ -35,6 +37,6 @@ export default {
     task: 'configure',
     params: PARAMS.withBase(PARAMS.withConfigure()),
     platforms: [
-        TIZEN
+        TIZEN, WEBOS
     ],
 };
